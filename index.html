@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vogue Vault – Wardrobe essentials & fashion finds from Amazon</title>
+<meta name="description" content="Hand-picked Amazon fashion finds: wardrobe essentials, capsule pieces and best sellers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Tokens taken from the Glow & Grit / Dawn theme export */
+:root{--bg:#faf9f6;--card:#f3f3f3;--ink:#1a1a1a;--accent:#334fb4;--line:rgba(26,26,26,.15);--w:1200px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Assistant,system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;letter-spacing:1px;line-height:1.2}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 20px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;letter-spacing:2px;padding:14px 26px;border:1px solid var(--ink);border-radius:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bar{background:var(--ink);color:#fff;text-align:center;font-size:14px;padding:8px 20px}
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 20px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:2px;text-decoration:none}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav a{text-decoration:none;font-size:15px}
+.nav ul a:hover{color:var(--accent)}
+@media(max-width:760px){.nav ul{display:none}}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:560px;border-bottom:1px solid var(--line)}
+.hero-text{padding:80px 6vw 80px max(20px,calc((100vw - var(--w))/2 + 20px));display:flex;flex-direction:column;justify-content:center;gap:24px}
+.hero h1{font-size:clamp(40px,6vw,76px)}
+.hero p{max-width:46ch;font-size:18px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{background:var(--accent);display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
+.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-art span{font-family:'Playfair Display',serif;font-size:clamp(90px,14vw,190px);opacity:.18;line-height:1}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.hero-art{min-height:240px;order:-1}.hero-text{padding:48px 20px}}
+section{padding:72px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.head h2{font-size:clamp(28px,4vw,40px)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{background:transparent;border:1px solid var(--ink);padding:8px 18px;font:inherit;font-size:14px;cursor:pointer;border-radius:0}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--card);display:flex;flex-direction:column;text-decoration:none}
+.ph{aspect-ratio:4/5;background:var(--c,#ddd);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;left:10px;bottom:10px;background:var(--accent);color:#fff;font-size:12px;padding:3px 12px;border-radius:40px}
+.info{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-size:18px;letter-spacing:.5px}
+.info p{font-size:14px;opacity:.8;flex:1}
+.info .btn{margin-top:10px;text-align:center;padding:11px 12px;font-size:12px}
+.card:hover h3{color:var(--accent)}
+.edit{background:var(--ink);color:#fff}
+.edit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.edit h2{font-size:clamp(28px,4vw,44px)}
+.edit p{margin:16px 0 24px;max-width:48ch;opacity:.85}
+.edit .btn{background:#fff;color:var(--ink);border-color:#fff}
+.edit .btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.edit ul{list-style:none;border-top:1px solid rgba(255,255,255,.25)}
+.edit li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.25);font-family:'Playfair Display',serif;font-size:20px}
+@media(max-width:760px){.edit .wrap{grid-template-columns:1fr}}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.trust h3{font-size:20px;margin-bottom:8px}
+@media(max-width:760px){.trust{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.disc{margin-top:24px;opacity:.75;max-width:80ch}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="bar">As an Amazon Associate I earn from qualifying purchases.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Vogue Vault</a>
+    <ul>
+      <li><a href="#picks" data-go="Wardrobe Essentials">Wardrobe Essentials</a></li>
+      <li><a href="#picks" data-go="Fashion Finds">Fashion Finds</a></li>
+      <li><a href="#capsule">The Capsule Edit</a></li>
+      <li><a href="#picks" data-go="Best Sellers">Best Sellers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn" href="#picks">Shop picks</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Fashion finds worth the click.</h1>
+      <p>We go through Amazon's fashion listings so you don't have to. Every piece here is a wardrobe essential, a capsule staple or a current best seller.</p>
+      <div class="hero-btns">
+        <a class="btn" href="#picks">See this week's picks</a>
+        <a class="btn ghost" href="#capsule">Build a capsule</a>
+      </div>
+    </div>
+    <!-- Replace with your own image: put it in /img and set src -->
+    <div class="hero-art"><span>VV</span><!-- <img src="img/hero.jpg" alt="Styled outfit"> --></div>
+  </div>
+
+  <section id="picks">
+    <div class="wrap">
+      <div class="head">
+        <h2>This week's picks</h2>
+        <div class="tabs" id="tabs" role="group" aria-label="Filter products"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="edit" id="capsule">
+    <div class="wrap">
+      <div>
+        <h2>The Capsule Edit</h2>
+        <p>Ten pieces that mix and match into thirty outfits. Start with neutrals, add one colour, and stop buying things you wear once.</p>
+        <a class="btn" href="#picks" data-go="The Capsule Edit">Shop the capsule</a>
+      </div>
+      <ul>
+        <li>A coat that works over everything</li>
+        <li>Two tops you'd wear on repeat</li>
+        <li>One pair of trousers that fits properly</li>
+        <li>Shoes you can walk a city in</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap trust">
+      <div><h3>Picked by hand</h3><p>No bulk lists. Each item is chosen for fit, fabric and reviews.</p></div>
+      <div><h3>Prices stay on Amazon</h3><p>Prices and stock change often, so every button takes you to the live listing.</p></div>
+      <div><h3>Same price for you</h3><p>Links are affiliate links. You pay nothing extra; we earn a small commission.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="logo" href="#top">Vogue Vault</a><p>Contact: <a href="mailto:you@example.com">you@example.com</a></p></div>
+      <nav aria-label="Social">
+        <a href="https://pinterest.com/YOUR_HANDLE">Pinterest</a>
+        <a href="https://instagram.com/YOUR_HANDLE">Instagram</a>
+        <a href="https://tiktok.com/@YOUR_HANDLE">TikTok</a>
+        <a href="https://youtube.com/@YOUR_HANDLE">YouTube</a>
+      </nav>
+    </div>
+    <p class="disc">Vogue Vault is a participant in the Amazon Services LLC Associates Program. As an Amazon Associate I earn from qualifying purchases. Product names and images are trademarks of their respective owners. Prices and availability are shown on Amazon at the time you visit.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== EDIT YOUR PRODUCTS HERE =====
+   url   : your Amazon affiliate link (amzn.to/... or amazon.com/dp/ASIN?tag=YOURTAG-20)
+   img   : file in /img (leave "" to show the colour block)
+   cat   : Wardrobe Essentials | Fashion Finds | The Capsule Edit | Best Sellers
+   badge : optional short label
+   Do not write prices here: Amazon only allows prices pulled live from its own tools. */
+const PRODUCTS = [
+  {name:"Classic white tee",   note:"Heavy cotton that holds its shape.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN1?tag=YOURTAG-20", img:"", color:"#e8e4dc", badge:"Best seller"},
+  {name:"High-waist straight jeans", note:"Fits true to size, no stretch-out.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN2?tag=YOURTAG-20", img:"", color:"#b9c3d6"},
+  {name:"Oversized wool-blend coat", note:"The one layer that finishes any outfit.", cat:"The Capsule Edit", url:"https://www.amazon.com/dp/ASIN3?tag=YOURTAG-20", img:"", color:"#8c7f72"},
+  {name:"Leather crossbody bag", note:"Small, structured, fits a phone and keys.", cat:"Fashion Finds", url:"https://www.amazon.com/dp/ASIN4?tag=YOURTAG-20", img:"", color:"#334fb4", badge:"New"},
+  {name:"Minimalist sneakers", note:"Clean white leather, easy to style.", cat:"Best Sellers", url:"https://www.amazon.com/dp/ASIN5?tag=YOURTAG-20", img:"", color:"#d9d9d9", badge:"Best seller"},
+  {name:"Ribbed knit cardigan", note:"Soft, light, works over dresses or tees.", cat:"The Capsule Edit", url:"https://www.amazon.com/dp/ASIN6?tag=YOURTAG-20", img:"", color:"#c9b8a6"},
+  {name:"Gold hoop earrings", note:"Lightweight, hypoallergenic finish.", cat:"Fashion Finds", url:"https://www.amazon.com/dp/ASIN7?tag=YOURTAG-20", img:"", color:"#d8c27a"},
+  {name:"Tailored black trousers", note:"Office to dinner without changing.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN8?tag=YOURTAG-20", img:"", color:"#2b2b2b"}
+];
+
+const CATS = ["All", ...new Set(PRODUCTS.map(p => p.cat))];
+const grid = document.getElementById("grid"), tabs = document.getElementById("tabs");
+let current = "All";
+
+function render(){
+  grid.innerHTML = "";
+  PRODUCTS.filter(p => current === "All" || p.cat === current).forEach(p => {
+    const a = document.createElement("a");
+    a.className = "card"; a.href = p.url; a.target = "_blank";
+    a.rel = "sponsored nofollow noopener"; /* required for affiliate links */
+    const ph = document.createElement("div");
+    ph.className = "ph"; ph.style.setProperty("--c", p.color || "#ddd");
+    if (p.img){ const i = document.createElement("img"); i.src = p.img; i.alt = p.name; i.loading = "lazy"; ph.appendChild(i); }
+    if (p.badge){ const b = document.createElement("span"); b.className = "badge"; b.textContent = p.badge; ph.appendChild(b); }
+    const info = document.createElement("div");
+    info.className = "info";
+    const h = document.createElement("h3"); h.textContent = p.name;
+    const n = document.createElement("p"); n.textContent = p.note;
+    const btn = document.createElement("span"); btn.className = "btn"; btn.textContent = "Check price on Amazon";
+    info.append(h, n, btn); a.append(ph, info); grid.appendChild(a);
+  });
+  tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.textContent === current));
+}
+CATS.forEach(c => {
+  const b = document.createElement("button");
+  b.textContent = c; b.onclick = () => { current = c; render(); };
+  tabs.appendChild(b);
+});
+document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", () => { current = a.dataset.go; render(); }));
+render();
+</script>
+</body>
+</html>
