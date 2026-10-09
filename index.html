@@ -57,6 +57,8 @@ section{padding:72px 0}
 .info p{font-size:14px;opacity:.8;flex:1}
 .info .btn{margin-top:10px;text-align:center;padding:11px 12px;font-size:12px}
 .card:hover h3{color:var(--accent)}
+a.ph{display:block}
+.info .btn.ghost{margin-top:6px}
 .edit{background:var(--ink);color:#fff}
 .edit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .edit h2{font-size:clamp(28px,4vw,44px)}
@@ -165,6 +167,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px}
    img   : full image address (or file in /img); leave "" to show the colour block
    cat   : Wardrobe Essentials | Fashion Finds | The Capsule Edit | Best Sellers
    badge : optional short label
+   video : optional YouTube or TikTok link to your own video of the product (adds a "Watch" button; leave out if none)
    Do not write prices here: Amazon only allows prices pulled live from its own tools. */
 const PRODUCTS = [
   {name:"Hanes EcoSmart zip-up hoodie", note:"Soft fleece, full zip, an easy everyday layer.", cat:"Wardrobe Essentials", url:"https://amzn.to/479rlYK", img:"https://m.media-amazon.com/images/I/71fm7+WAt4L._AC_SX679_.jpg", color:"#9a9a9a"},
@@ -183,10 +186,10 @@ let current = "All";
 function render(){
   grid.innerHTML = "";
   PRODUCTS.filter(p => current === "All" || p.cat === current).forEach(p => {
-    const a = document.createElement("a");
-    a.className = "card"; a.href = p.url; a.target = "_blank";
-    a.rel = "sponsored nofollow noopener"; /* required for affiliate links */
-    const ph = document.createElement("div");
+    const card = document.createElement("div"); card.className = "card";
+    const REL = "sponsored nofollow noopener"; /* required for affiliate links */
+    const ph = document.createElement("a");
+    ph.href = p.url; ph.target = "_blank"; ph.rel = REL; ph.setAttribute("aria-label", p.name + " on Amazon");
     ph.className = "ph"; ph.style.setProperty("--c", p.color || "#ddd");
     if (p.img){ const i = document.createElement("img"); i.src = p.img; i.alt = p.name; i.loading = "lazy"; i.referrerPolicy = "no-referrer"; ph.appendChild(i); }
     if (p.badge){ const b = document.createElement("span"); b.className = "badge"; b.textContent = p.badge; ph.appendChild(b); }
@@ -194,8 +197,16 @@ function render(){
     info.className = "info";
     const h = document.createElement("h3"); h.textContent = p.name;
     const n = document.createElement("p"); n.textContent = p.note;
-    const btn = document.createElement("span"); btn.className = "btn"; btn.textContent = "Check price on Amazon";
-    info.append(h, n, btn); a.append(ph, info); grid.appendChild(a);
+    const btn = document.createElement("a"); btn.className = "btn"; btn.textContent = "Check price on Amazon";
+    btn.href = p.url; btn.target = "_blank"; btn.rel = REL;
+    info.append(h, n, btn);
+    if (p.video){
+      const v = document.createElement("a"); v.className = "btn ghost";
+      v.href = p.video; v.target = "_blank"; v.rel = "noopener noreferrer";
+      v.textContent = /tiktok\./i.test(p.video) ? "Watch on TikTok" : "Watch on YouTube";
+      info.append(v);
+    }
+    card.append(ph, info); grid.appendChild(card);
   });
   tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.textContent === current));
 }
