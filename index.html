@@ -160,20 +160,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px}
 
 <script>
 /* ===== EDIT YOUR PRODUCTS HERE =====
-   url   : your Amazon affiliate link (amzn.to/... or amazon.com/dp/ASIN?tag=YOURTAG-20)
-   img   : file in /img (leave "" to show the colour block)
+   url   : your Amazon affiliate link (amzn.to/... or amazon.com/dp/ASIN?tag=marketingp01d-20)
+   img   : full image address (or file in /img); leave "" to show the colour block
    cat   : Wardrobe Essentials | Fashion Finds | The Capsule Edit | Best Sellers
    badge : optional short label
    Do not write prices here: Amazon only allows prices pulled live from its own tools. */
 const PRODUCTS = [
-  {name:"Classic white tee",   note:"Heavy cotton that holds its shape.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN1?tag=YOURTAG-20", img:"", color:"#e8e4dc", badge:"Best seller"},
-  {name:"High-waist straight jeans", note:"Fits true to size, no stretch-out.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN2?tag=YOURTAG-20", img:"", color:"#b9c3d6"},
-  {name:"Oversized wool-blend coat", note:"The one layer that finishes any outfit.", cat:"The Capsule Edit", url:"https://www.amazon.com/dp/ASIN3?tag=YOURTAG-20", img:"", color:"#8c7f72"},
-  {name:"Leather crossbody bag", note:"Small, structured, fits a phone and keys.", cat:"Fashion Finds", url:"https://www.amazon.com/dp/ASIN4?tag=YOURTAG-20", img:"", color:"#334fb4", badge:"New"},
-  {name:"Minimalist sneakers", note:"Clean white leather, easy to style.", cat:"Best Sellers", url:"https://www.amazon.com/dp/ASIN5?tag=YOURTAG-20", img:"", color:"#d9d9d9", badge:"Best seller"},
-  {name:"Ribbed knit cardigan", note:"Soft, light, works over dresses or tees.", cat:"The Capsule Edit", url:"https://www.amazon.com/dp/ASIN6?tag=YOURTAG-20", img:"", color:"#c9b8a6"},
-  {name:"Gold hoop earrings", note:"Lightweight, hypoallergenic finish.", cat:"Fashion Finds", url:"https://www.amazon.com/dp/ASIN7?tag=YOURTAG-20", img:"", color:"#d8c27a"},
-  {name:"Tailored black trousers", note:"Office to dinner without changing.", cat:"Wardrobe Essentials", url:"https://www.amazon.com/dp/ASIN8?tag=YOURTAG-20", img:"", color:"#2b2b2b"}
+  {name:"Hanes EcoSmart zip-up hoodie", note:"Soft fleece, full zip, an easy everyday layer.", cat:"Wardrobe Essentials", url:"https://amzn.to/479rlYK", img:"https://m.media-amazon.com/images/I/71fm7+WAt4L._AC_SX679_.jpg", color:"#9a9a9a"}
 ];
 
 const CATS = ["All", ...new Set(PRODUCTS.map(p => p.cat))];
@@ -188,7 +181,7 @@ function render(){
     a.rel = "sponsored nofollow noopener"; /* required for affiliate links */
     const ph = document.createElement("div");
     ph.className = "ph"; ph.style.setProperty("--c", p.color || "#ddd");
-    if (p.img){ const i = document.createElement("img"); i.src = p.img; i.alt = p.name; i.loading = "lazy"; ph.appendChild(i); }
+    if (p.img){ const i = document.createElement("img"); i.src = p.img; i.alt = p.name; i.loading = "lazy"; i.referrerPolicy = "no-referrer"; ph.appendChild(i); }
     if (p.badge){ const b = document.createElement("span"); b.className = "badge"; b.textContent = p.badge; ph.appendChild(b); }
     const info = document.createElement("div");
     info.className = "info";
