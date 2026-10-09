@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vogue Vault – Wardrobe essentials & fashion finds from Amazon</title>
 <meta name="description" content="Hand-picked Amazon fashion finds: wardrobe essentials, capsule pieces and best sellers.">
+<link rel="icon" type="image/png" href="logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@ a{color:inherit}
 header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 20px}
 .logo{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:2px;text-decoration:none}
+.nav .logo img{display:block;height:58px;width:auto}
 .nav ul{display:flex;gap:26px;list-style:none}
 .nav a{text-decoration:none;font-size:15px}
 .nav ul a:hover{color:var(--accent)}
@@ -36,7 +38,9 @@ header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px s
 .hero p{max-width:46ch;font-size:18px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .hero-art{background:var(--accent);display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
-.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-logo{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);width:min(72%,380px);padding:16px 24px;background:rgba(250,249,246,.9);backdrop-filter:blur(4px)}
+.hero-logo img{display:block;width:100%;height:auto}
 .hero-art span{font-family:'Playfair Display',serif;font-size:clamp(90px,14vw,190px);opacity:.18;line-height:1}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.hero-art{min-height:240px;order:-1}.hero-text{padding:48px 20px}}
 section{padding:72px 0}
@@ -84,7 +88,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px}
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">Vogue Vault</a>
+    <a class="logo" href="#top" aria-label="Vogue Vault home"><img src="logo.png" alt="Vogue Vault Fashion Store"></a>
     <ul>
       <li><a href="#picks" data-go="Wardrobe Essentials">Wardrobe Essentials</a></li>
       <li><a href="#picks" data-go="Fashion Finds">Fashion Finds</a></li>
@@ -106,8 +110,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px}
         <a class="btn ghost" href="#capsule">Build a capsule</a>
       </div>
     </div>
-    <!-- Replace with your own image: put it in /img and set src -->
-    <div class="hero-art"><span>VV</span><!-- <img src="img/hero.jpg" alt="Styled outfit"> --></div>
+    <!-- Hero photo: save your image as hero.jpg in the repo root. If it is missing, the blue block shows instead. -->
+    <div class="hero-art">
+      <img src="hero.jpg" alt="Vogue Vault fashion" onerror="this.remove()">
+      <div class="hero-logo"><img src="logo.png" alt="Vogue Vault Fashion Store"></div>
+    </div>
   </div>
 
   <section id="picks">
